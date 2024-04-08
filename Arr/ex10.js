@@ -1,22 +1,18 @@
-function nonduplicatesNumber(arr_1,arr_2){
-    let duplicates = [];
-    for (let i = 0; i < arr_1.length; i++) {
-        let number = arr_1[i];
-      
-        if (!arr_2.includes(number)) {
-          duplicates.push(number);
-        }
-      }
-    for (let i = 0; i < arr_2.length; i++) {
-        let number = arr_2[i];
-      
-        if (!arr_1.includes(number)) {
-          duplicates.push(number);
-        }
-      }
+function findNonDuplicates(arr1, arr2) {
+  let combinedArray = arr1.concat(arr2);
+  let nonDuplicates = [];
 
-      return duplicates
+  for (let i = 0; i < combinedArray.length; i++) {
+    let number = combinedArray[i];
+
+    if (!arr1.includes(number) || !arr2.includes(number)) {
+      nonDuplicates.push(number);
+    }
+  }
+
+  return nonDuplicates;
 }
-let myArray_1 = [1, 2, 3, 4, 5];
-let myArray_2 = [1, 2, 3,5,6,7,12];
-  console.log(nonduplicatesNumber(myArray_1,myArray_2))
+
+let myArray1 = [1, 2, 3, 4, 5];
+let myArray2 = [1, 2, 3, 5, 6, 7, 12];
+console.log(findNonDuplicates(myArray1, myArray2));
